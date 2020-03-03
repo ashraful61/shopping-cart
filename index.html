@@ -25,11 +25,11 @@
 
                      <div class="col-md-5 center-item">
                         <div class="input-group number-spinner">
-                           <button class="btn btn-default"><i class="fas fa-minus"></i></button>
-                           <input type="text" class="form-control text-center" value="1">
-                           <button class="btn btn-default"><i class="fas fa-plus"></i></button>
+                           <button id="decrementButton" class="btn btn-default"><i class="fas fa-minus"></i></button>
+                           <input id="itemNumber" type="text" class="form-control text-center" value="1">
+                           <button id="incrementButton" class="btn btn-default"><i class="fas fa-plus"></i></button>
                         </div>
-                        <h5>$1219</h5>
+                        <h5>$ <span id="price">100</span> </h5>
                         <img src="images/remove.png" alt="" class="remove-item">
                      </div>
                   </div>
@@ -43,12 +43,12 @@
                      </div>
                      <div class="col-md-5 center-item">
                         <div class="input-group number-spinner">
-                           <button class="btn btn-default"><i class="fas fa-minus"></i></button>
-                           <input type="text" class="form-control text-center" value="1">
-                           <button class="btn btn-default"><i class="fas fa-plus"></i></button>
+                           <button id="decBtn" class="btn btn-default"><i class="fas fa-minus"></i></button>
+                           <input id="quantity" type="text" class="form-control text-center" value="1">
+                           <button id="incBtn" class="btn btn-default"><i class="fas fa-plus"></i></button>
 
                         </div>
-                        <h5>$59</h5>
+                        <h5>$ <span id="pricee">50</span> </h5>
                         <img src="images/remove.png" alt="" class="remove-item">
                      </div>
                   </div>
@@ -64,9 +64,9 @@
                      </div>
 
                      <div class="col-md-4 status">
-                        <h5>$1,278</h5>
+                        <h5>$ <span id="subtotal"></span> </h5>
                         <h5>$0</h5>
-                        <h5>$1,278</h5>
+                        <h5>$ <span id="total"></span></h5>
                      </div>
                   </div>
                </div>
@@ -75,8 +75,87 @@
                </div>
             </div>
          </div>
-      </div>
+      </div>  
    </section>
+
+  <script>
+         //+ Button Event Handler
+          const  addButton = document.getElementById("incrementButton"); 
+          addButton.addEventListener('click',function(){
+            console.log("+ button clicked");
+          const itemNumber = document.getElementById("itemNumber").value;
+          const itemNumberNumber = parseFloat(itemNumber);
+          const item = itemNumberNumber + 1; 
+          document.getElementById("itemNumber").value =  item;
+          //const price = document.getElementById("price").innerText
+          document.getElementById("price").innerText = item*100;
+          const itemprice = document.getElementById("price").innerText;
+          const price1 = document.getElementById("price").innerText;
+          const price2 = document.getElementById("pricee").innerText;
+          document.getElementById("subtotal").innerText = parseFloat(price1) + parseFloat(price2);
+          document.getElementById("total").innerText = parseFloat(price1) + parseFloat(price2); 
+         // console.log(itemNumberNumber = itemNumberNumber +1);
+       })
+
+       //- Button Event Handler
+
+         const  subButton = document.getElementById("decrementButton"); 
+          subButton.addEventListener('click',function(){
+          console.log("- button clicked");
+          const itemNumber = document.getElementById("itemNumber").value;
+          const itemNumberNumber = parseFloat(itemNumber);
+          const item = itemNumberNumber - 1; 
+          document.getElementById("itemNumber").value =  item;
+          const itemprice = document.getElementById("price").innerText;
+          document.getElementById("price").innerText = itemprice - 100;
+          const price1 = document.getElementById("price").innerText;
+          const price2 = document.getElementById("pricee").innerText;
+          document.getElementById("subtotal").innerText = parseFloat(price1) + parseFloat(price2); 
+          document.getElementById("total").innerText = parseFloat(price1) + parseFloat(price2); 
+       })
+        
+        //+ Button Event Handler
+        const  incBtn = document.getElementById("incBtn"); 
+          incBtn.addEventListener('click',function(){
+            console.log("+ button clicked");
+          const quantity = document.getElementById("quantity").value;
+          const quantityNumber = parseFloat(quantity);
+          const items = quantityNumber + 1; 
+          document.getElementById("quantity").value =  items;
+          //const price = document.getElementById("price").innerText
+          document.getElementById("pricee").innerText = items*50;
+          const itempricee = document.getElementById("pricee").innerText;    
+          const price1 = document.getElementById("price").innerText;
+          const price2 = document.getElementById("pricee").innerText;
+          document.getElementById("subtotal").innerText = parseFloat(price1) + parseFloat(price2);
+          document.getElementById("total").innerText = parseFloat(price1) + parseFloat(price2); 
+       })
+
+
+     //- Button Event Handler
+
+     const decBtn = document.getElementById("decBtn"); 
+          decBtn.addEventListener('click',function(){
+          console.log("- button clicked");
+          const quantity = document.getElementById("quantity").value;
+          const quantityNumber = parseFloat(quantity);
+          const items = quantityNumber - 1; 
+          document.getElementById("quantity").value =  items;
+          const itempricee = document.getElementById("pricee").innerText;
+          document.getElementById("pricee").innerText = parseFloat(itempricee) - 50;
+          const price1 = document.getElementById("price").innerText;
+          const price2 = document.getElementById("pricee").innerText;
+          document.getElementById("subtotal").innerText = parseFloat(price1) + parseFloat(price2);
+          document.getElementById("total").innerText = parseFloat(price1) + parseFloat(price2); 
+       })
+       const price1 = document.getElementById("price").innerText;
+       const price2 = document.getElementById("pricee").innerText;
+       document.getElementById("subtotal").innerText = parseFloat(price1) + parseFloat(price2);
+       document.getElementById("total").innerText = parseFloat(price1) + parseFloat(price2); 
+
+  
+  </script>
+
 </body>
 
 </html>
